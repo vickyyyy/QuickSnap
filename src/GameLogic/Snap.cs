@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using SwinGameSDK;
 
 #if DEBUG
@@ -138,7 +138,18 @@ namespace CardGames.GameLogic
 				 _topCards [0] != null && _topCards [0].Rank == _topCards [1].Rank) // and its a match
 			{
 				_score[player]++;
+<<<<<<< Updated upstream
 				//TODO: consider playing a sound here...
+=======
+
+				if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT) && SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
+					SwinGame.LoadSoundEffectNamed ("Swish", "swish.wav");
+					SwinGame.PlaySoundEffect ("Swish");
+				}
+
+			} else if (player >= 0 && player < _score.Length) {
+				_score [player]--;
+>>>>>>> Stashed changes
 			}
 
 			// stop the game...
