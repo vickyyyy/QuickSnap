@@ -4,50 +4,48 @@ using CardGames.GameLogic;
 
 namespace CardGames
 {
-    public class SnapGame
-    {
-        public static void LoadResources()
-        {
-            Bitmap cards;
-            cards = SwinGame.LoadBitmapNamed ("Cards", "Cards.png");
-            SwinGame.BitmapSetCellDetails (cards, 82, 110, 13, 5, 53);      // set the cells in the bitmap to match the cards
-        }
+	public class SnapGame
+	{
+		public static void LoadResources ()
+		{
+			Bitmap cards;
+			cards = SwinGame.LoadBitmapNamed ("Cards", "Cards.png");
+			SwinGame.BitmapSetCellDetails (cards, 82, 110, 13, 5, 53);      // set the cells in the bitmap to match the cards
+		}
 
 		/// <summary>
 		/// Respond to the user input -- with requests affecting myGame
 		/// </summary>
 		/// <param name="myGame">The game object to update in response to events.</param>
-		private static void HandleUserInput(Snap myGame)
+		private static void HandleUserInput (Snap myGame)
 		{
 			//Fetch the next batch of UI interaction
-			SwinGame.ProcessEvents();
+			SwinGame.ProcessEvents ();
 
-			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
-			{
+			if (SwinGame.KeyTyped (KeyCode.vk_SPACE)) {
 				myGame.FlipNextCard ();
 			}
 
 			if (myGame.IsStarted) {
-				
-				if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT) && SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) 
-				{
+
+				if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT) && SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
 					SwinGame.LoadSoundEffectNamed ("Correct", "correct.wav");
 					SwinGame.PlaySoundEffect ("Correct");
-				}
-				else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) 
-				{
+				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
 					SwinGame.LoadSoundEffectNamed ("Swish", "swish.wav");
 					SwinGame.PlaySoundEffect ("Swish");
 					myGame.PlayerHit (1);
-				} 
-				else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) 
-				{
+				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
 					SwinGame.LoadSoundEffectNamed ("Slap", "slap.wav");
 					SwinGame.PlaySoundEffect ("Slap");
 					myGame.PlayerHit (0);
 				}
 			}
 		}
+		//private static void SwinGame.LoadFontNamed ("GameFont", "Chunkfive.otf", 24);
+
+			//SwinGame.DrawText(""+myGame.Score(0), Color.White,"Gamefont",30);
+	
 
 		/// <summary>
 		/// Draws the game to the Window.
@@ -58,7 +56,7 @@ namespace CardGames
 
 			SwinGame.DrawBitmap ("cardsBoard.png", 0, 0);
 
-			SwinGame.ClearScreen(Color.White);
+			//SwinGame.ClearScreen(Color.White);
 
 
 			// Draw the top card
@@ -71,7 +69,7 @@ namespace CardGames
 
 				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 521, 153);
 
-				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 350, 50);
+				//SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 350, 50);
 
 			}
 			else
@@ -83,7 +81,7 @@ namespace CardGames
 
 			SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), 52, 155, 153);
 
-			SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), 52, 160, 50);
+			//SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), 52, 160, 50);
 
 
 			//Draw onto the screen
